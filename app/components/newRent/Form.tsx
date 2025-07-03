@@ -22,6 +22,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 export default function Form() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [openModal, setOpenModal] = useState(false);
+
   const [modalContent, setModalContent] = useState({
     title: "",
     description: "",
@@ -311,12 +312,7 @@ export default function Form() {
               <Dialog>
                 <DialogTrigger asChild>
                   <button
-                    onClick={() =>
-                      handleAddClick(
-                        "Charges",
-                        "List all applicable charges including rent, maintenance, and utilities."
-                      )
-                    }
+                    onClick={() => handleAddClick("Charges", "")}
                     className="ml-2 text-blue-600 hover:underline"
                   >
                     + Add
@@ -325,25 +321,40 @@ export default function Form() {
                 <DialogContent>
                   <DialogHeader>
                     <DialogTitle>{modalContent.title}</DialogTitle>
-                    <div className="space-y-1">
-                          <Label htmlFor="state">Application fee (one time)*</Label>
-                          <Select>
-                            <SelectTrigger id="state">
-                              <SelectValue placeholder="Choose state" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                    <SelectItem value="tx">All 18+ applicant</SelectItem>
-                                    <SelectItem value="ca">California</SelectItem>
-                                    <SelectItem value="ny">New York</SelectItem>
-                                  </SelectContent>
-                          </Select>
+                    <div className="space-y-1 flex justify-between">
+                      <div>
+                        <Label htmlFor="state" className="my-4">
+                          Application fee (one time)*
+                        </Label>
+                        <Select>
+                          <SelectTrigger id="state">
+                            <SelectValue placeholder="Choose state" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="all">
+                              All 18+ applicant
+                            </SelectItem>
+                            <SelectItem value="ca">California</SelectItem>
+                            <SelectItem value="ny">New York</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div>
+                        <div>
+                          <h1>Admin fee (one-time)</h1>
+                          <Input type="number" placeholder="0" />
                         </div>
-
+                      </div>
+                    </div>
+                    <div className="flex justify-between mt-4">
+                      <p>Type 0 if charges not applicable </p>
+                      <Button className="bg-blue-500 text-white ">Add</Button>
+                    </div>
                   </DialogHeader>
                   <p className="text-gray-600">{modalContent.description}</p>
-                  <Button onClick={() => setOpenModal(false)} className="mt-4">
-                    Close
-                  </Button>
+                  {/* <Button onClick={() => setOpenModal(false)} className="mt-4"> */}
+                  {/* Close */}
+                  {/* </Button> */}
                 </DialogContent>
               </Dialog>
             </div>
@@ -553,12 +564,7 @@ export default function Form() {
               <Dialog>
                 <DialogTrigger asChild>
                   <button
-                    onClick={() =>
-                      handleAddClick(
-                        "Utilities Provider",
-                        "Specify providers for electricity, water, or internet."
-                      )
-                    }
+                    onClick={() => handleAddClick("Utilities Provider", "")}
                     className="ml-2 text-blue-600 hover:underline"
                   >
                     + Add
@@ -567,11 +573,39 @@ export default function Form() {
                 <DialogContent>
                   <DialogHeader>
                     <DialogTitle>{modalContent.title}</DialogTitle>
+                    <div className="flex flex-col md:flex-row justify-between gap-4 mt-4">
+                      {/* Utility Type */}
+                      <div className="flex-1 space-y-2">
+                        <Label htmlFor="utilityType">
+                          Utility type <span className="text-red-500">*</span>
+                        </Label>
+                        <Select>
+                          <SelectTrigger id="utilityType">
+                            <SelectValue placeholder="Select" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="all">
+                              All 18+ applicant
+                            </SelectItem>
+                            <SelectItem value="framework">Framework</SelectItem>
+                            <SelectItem value="library">Library</SelectItem>
+                            <SelectItem value="class">Class</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      {/* Provider Name */}
+                      <div className="flex-1 space-y-2">
+                        <Label htmlFor="providerName">
+                          Provider company name{" "}
+                          <span className="text-red-500">*</span>
+                        </Label>
+                        <Input id="providerName" placeholder="Enter name" />
+                      </div>
+                    </div>
                   </DialogHeader>
                   <p className="text-gray-600">{modalContent.description}</p>
-                  <Button onClick={() => setOpenModal(false)} className="mt-4">
-                    Close
-                  </Button>
+                  <Button className="bg-blue-500 text-white">Add</Button>
                 </DialogContent>
               </Dialog>
             </div>
