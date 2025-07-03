@@ -5,7 +5,7 @@ import React from "react";
 
 export default function Navbar() {
   return (
-    <header className=  " sticky z-50  top-0  w-full px-6 py-4 shadow-sm border-b bg-white">
+    <header className=  "   w-full px-6 py-4 shadow-sm border-b bg-white">
       <div className="w-11/12  mx-auto flex justify-between items-center">
         {/* Brand with Icon */}
         <div className="flex items-center gap-2">
