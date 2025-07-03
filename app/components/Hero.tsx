@@ -1,5 +1,6 @@
 "use client";
 import { Building2, Building, Home, User2, UserCog, Users } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 const propertyTypes = [
@@ -43,7 +44,14 @@ export default function Hero() {
     <div className="p-6 space-y-12">
       {/* Property Types */}
       <section>
-        <h1 className="text-2xl font-bold mb-6">Property Types</h1>
+        <section className="flex justify-between">
+          <div>
+            <h1 className="text-2xl font-bold mb-6">Property Types</h1>
+          </div>
+          <div>
+            <Link href={"/rent"}>Visit more rentYard</Link>
+          </div>
+        </section>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {propertyTypes.map((item, index) => (
             <div
@@ -71,7 +79,7 @@ export default function Hero() {
               key={index}
               className="border p-4 rounded-lg shadow-sm hover:shadow-md transition"
             >
-             <div className="flex gap-6">
+              <div className="flex gap-6">
                 <div className="mt-5 text ">{item.icon}</div>
                 <div>
                   <h2 className="text-lg font-semibold my-1">{item.title}</h2>
