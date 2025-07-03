@@ -515,7 +515,7 @@ export default function Form() {
                   <DialogHeader>
                     <DialogTitle>{modalContent.title}</DialogTitle>
                   </DialogHeader>
-                  <p className="text-gray-600">{modalContent.description}</p>
+                  <p className="text-gray-500">{modalContent.description}</p>
                   <Button onClick={() => setOpenModal(false)} className="mt-4">
                     Close
                   </Button>
