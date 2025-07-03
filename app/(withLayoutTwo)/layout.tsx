@@ -2,9 +2,6 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-import Hero2 from "../components/componentstwo/Hero2";
-import { Content } from "../components/componentstwo/Content";
-
 export default function layout({
   children,
 }: Readonly<{
@@ -15,14 +12,7 @@ export default function layout({
       <Navbar />
       <div className="min-h-[82vh]">{children}</div>
       <Footer />
-      <div className="mt-20">
-        <Navbar />
-      </div>
-        <div className="w-11/12 mx-auto">
-             <Hero2 />
-             <Content />
-        </div>
-      <Footer />
+      
     </div>
   );
 }
